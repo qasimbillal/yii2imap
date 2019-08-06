@@ -7,7 +7,6 @@ use yii\base\Component;
 use stdClass;
 
 /**
-   *Copyright (c) 2012 by Barbushin Sergey <barbushin@gmail.com>.
    *All rights reserved.
 */
 

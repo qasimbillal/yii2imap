@@ -3,15 +3,14 @@
 namespace qbilal\imap;
 
 use Yii;
-use roopz\imap\Mailbox;
+use qbilal\imap\Mailbox;
 use yii\base\Exception;
 use yii\base\InvalidConfigException;
 
 /**
- * Copyright (c) 2015 by Roopan Valiya Veetil <yiioverflow@gmail.com>.
+ * 
  * All rights reserved.
- * Date : 29-07-2015
- * Time : 5:20 PM
+ * Date : 19-07-2019
  * Class can be used for connecting and extracting Email messages.
  */
 
@@ -24,7 +23,7 @@ use yii\base\InvalidConfigException;
  * 'components' => [
  *     ...
  *     'imap' => [
- *         'class' => 'vendor\roopz\yii2-imap\Imap',
+ *         'class' => 'vendor\qbilal\yii2-imap\Imap',
  *         'connection' => [
  *             'imapPath' => '{imap.gmail.com:993/imap/ssl}INBOX',
  *             'imapLogin' => 'username',
@@ -83,7 +82,7 @@ class Imap extends Mailbox
             $this->decodeMimeStr = $this->_connection['decodeMimeStr'];
         }
         //MIME character set to use when searching strings
-        $this->searchEncoding = $this->_connection['searchEncoding'] ?? $this->_connection['serverEncoding'];
+        $this->searchEncoding = $this->_connection['searchEncoding'] ? $this->_connection['searchEncoding'] : $this->_connection['serverEncoding'];
 
         if ($this->attachmentsDir) {
             if (!is_dir($this->attachmentsDir)) {
